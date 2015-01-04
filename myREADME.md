@@ -65,7 +65,7 @@ Using:
 
 
 # refactoring tasks
-1. move server files into single `server` folder
+1. move server files into single `server` folder **[DONE]**
 2. add contact form validation on front and back end
 3. add summary list
 4. make sense of templates in backend (better using jade?)
