@@ -55,7 +55,13 @@ Using:
 	$ echo "web: node server.js" > Procfile
 	$ heroku create
 	$ heroku addons:add mongohq
-	$ 
+	
+	change in server.js url of mongodb to use process.env.MONGOHQ_URL
+
+	$ ... add and commit changes ...	
+
+	$ git push heroku master
+	$ heroku ps:scale web=1
 
 
 # refactoring tasks
