@@ -37,4 +37,29 @@ Using:
 * marionette events [doc here v1.4.1](http://marionettejs.com/docs/v1.4.1/marionette.application.html#application-event) ([current version doc](http://marionettejs.com/docs/marionette.application.html#application-events))
 * looks like `app:start` is a custom event, not a Marionette event
 * `App` is an empty `{}`object that contains a new `Marionette.Application()` in `App.core` attribute, instead of extending `Marionette.Application`... why?
-* 
+* sometimes `App` is accessed and sometimes `window.App`... why?
+
+### model & collection
+* in `collections/contacts.js`, configures the back-end API url
+* in `models/contact.js`, configures the `_id` field and back-end API url
+
+### controller
+* create views and renders them
+* main view (contacts) is cached in App.views
+
+### views
+* associated with handlebars templates
+
+##Part 4 - Publish to Heroku
+	$ heroku login
+	$ echo "web: node server.js" > Procfile
+	$ heroku create
+	$ heroku addons:add mongohq
+	$ 
+
+
+# refactoring tasks
+1. move server files into single `server` folder
+2. add contact form validation on front and back end
+3. ...
+	

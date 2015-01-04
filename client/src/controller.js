@@ -16,7 +16,7 @@ module.exports = Controller = Marionette.Controller.extend({
         App.core.vent.trigger('app:log', 'Controller: "Home" route hit.');
         var view = window.App.views.contactsView;
         this.renderView(view);
-        window.App.router.navigate('#');
+        window.App.router.navigate('');
     },
 
     details: function(id) {
