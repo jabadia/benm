@@ -15358,6 +15358,8 @@ var itemView = Marionette.ItemView.extend({
     events: {
         'click': 'showDetails'
     },
+    tagName: 'li',
+    className: 'contact-item',
 
     showDetails: function() {
         window.App.core.vent.trigger('app:log', 'Contacts View: showDetails hit.');
@@ -15369,7 +15371,9 @@ module.exports = CollectionView = Marionette.CollectionView.extend({
     initialize: function() {
         this.listenTo(this.collection, 'change', this.render);
     },
-    itemView: itemView
+    itemView: itemView,
+    tagName: 'ul',
+    id: 'contact-list',
 });
 
 },{"../../templates/contact_small.hbs":12}],10:[function(require,module,exports){
