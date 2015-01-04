@@ -1,3 +1,6 @@
+// ----------------------------------------------------
+//  controller.js
+// ----------------------------------------------------
 var Marionette = require('backbone.marionette'),
     ContactsView = require('./views/contacts'),
     ContactDetailsView = require('./views/contact_details'),

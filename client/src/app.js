@@ -1,3 +1,6 @@
+// ----------------------------------------------------
+//  app.js
+// ----------------------------------------------------
 var Marionette = require('backbone.marionette'),
     Controller = require('./controller'),
     Router = require('./router'),
