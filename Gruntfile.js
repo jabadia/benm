@@ -200,13 +200,15 @@ module.exports = function(grunt) {
             dev: {
                 tasks: ['nodemon:dev', 'shell:mongo', 'watch:scripts', 'watch:less', 'watch:test'],
                 options: {
-                    logConcurrentOutput: true
+                    logConcurrentOutput: true,
+                    limit: 5
                 }
             },
             test: {
                 tasks: ['watch:karma'],
                 options: {
-                    logConcurrentOutput: true
+                    logConcurrentOutput: true,
+                    limit: 5
                 }
             }
         },
