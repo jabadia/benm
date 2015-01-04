@@ -161,9 +161,9 @@ module.exports = function(grunt) {
         nodemon: {
             dev: {
                 options: {
-                    file: 'server.js',
+                    file: 'server/server.js',
                     nodeArgs: ['--debug'],
-                    watchedFolders: ['controllers', 'app'],
+                    watchedFolders: ['server', 'server/controllers', 'server/app', 'server/views'],
                     env: {
                         PORT: '3300'
                     }
@@ -182,7 +182,7 @@ module.exports = function(grunt) {
             },
 
             server: {
-                src: ['spec/spechelper.js', 'spec/**/*.test.js']
+                src: ['server/spec/spechelper.js', 'server/spec/**/*.test.js']
             }
         },
 
