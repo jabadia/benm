@@ -98,13 +98,13 @@ module.exports = function(grunt) {
             dev: {
                 files: [{
                     src: 'build/<%= pkg.name %>.js',
-                    dest: 'public/js/<%= pkg.name %>.js'
+                    dest: 'server/public/js/<%= pkg.name %>.js'
                 }, {
                     src: 'build/<%= pkg.name %>.css',
-                    dest: 'public/css/<%= pkg.name %>.css'
+                    dest: 'server/public/css/<%= pkg.name %>.css'
                 }, {
                     src: 'client/img/*',
-                    dest: 'public/img/'
+                    dest: 'server/public/img/'
                 }]
             },
             prod: {
