@@ -16,9 +16,9 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            build: ['build'],
+            build: ['client/build'],
             dev: {
-                src: ['build/app.js', 'build/<%= pkg.name %>.css', 'build/<%= pkg.name %>.js']
+                src: ['client/build/app.js', 'client/build/<%= pkg.name %>.css', 'client/build/<%= pkg.name %>.js']
             },
             prod: ['dist']
         },
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         browserify: {
             vendor: {
                 src: ['client/requires/**/*.js'],
-                dest: 'build/vendor.js',
+                dest: 'client/build/vendor.js',
                 options: {
                     shim: {
                         jquery: {
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
             },
             app: {
                 files: {
-                    'build/app.js': ['client/src/main.js']
+                    'client/build/app.js': ['client/src/main.js']
                 },
                 options: {
                     transform: ['hbsfy'],
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             },
             test: {
                 files: {
-                    'build/tests.js': [
+                    'client/build/tests.js': [
                         'client/spec/**/*.test.js'
                     ]
                 },
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
         less: {
             transpile: {
                 files: {
-                    'build/<%= pkg.name %>.css': [
+                    'client/build/<%= pkg.name %>.css': [
                         'client/styles/reset.css',
                         'client/requires/*/css/*',
                         'client/styles/less/main.less'
@@ -91,16 +91,16 @@ module.exports = function(grunt) {
         },
 
         concat: {
-            'build/<%= pkg.name %>.js': ['build/vendor.js', 'build/app.js']
+            'client/build/<%= pkg.name %>.js': ['client/build/vendor.js', 'client/build/app.js']
         },
 
         copy: {
             dev: {
                 files: [{
-                    src: 'build/<%= pkg.name %>.js',
+                    src: 'client/build/<%= pkg.name %>.js',
                     dest: 'server/public/js/<%= pkg.name %>.js'
                 }, {
-                    src: 'build/<%= pkg.name %>.css',
+                    src: 'client/build/<%= pkg.name %>.css',
                     dest: 'server/public/css/<%= pkg.name %>.css'
                 }, {
                     src: 'client/img/*',
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
         // CSS minification.
         cssmin: {
             minify: {
-                src: ['build/<%= pkg.name %>.css'],
+                src: ['client/build/<%= pkg.name %>.css'],
                 dest: 'dist/css/<%= pkg.name %>.css'
             }
         },
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
                     verbose: true
                 },
                 files: [{
-                    src: 'build/<%= pkg.name %>.js',
+                    src: 'client/build/<%= pkg.name %>.js',
                     dest: 'dist/js/<%= pkg.name %>.js'
                 }]
             }
@@ -148,11 +148,11 @@ module.exports = function(grunt) {
                 tasks: ['less:transpile', 'copy:dev']
             },
             test: {
-                files: ['build/app.js', 'client/spec/**/*.test.js'],
+                files: ['client/build/app.js', 'client/spec/**/*.test.js'],
                 tasks: ['browserify:test']
             },
             karma: {
-                files: ['build/tests.js'],
+                files: ['client/build/tests.js'],
                 tasks: ['jshint:test', 'karma:watcher:run']
             }
         },
@@ -216,7 +216,7 @@ module.exports = function(grunt) {
         // for front-end tdd
         karma: {
             options: {
-                configFile: 'karma.conf.js'
+                configFile: 'client/spec/karma.conf.js'
             },
             watcher: {
                 background: true,
