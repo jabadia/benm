@@ -91,6 +91,7 @@ describe('Contacts Controller', function() {
             contacts.add(req, res);
             expect(res.json).calledWith(req.body);
         });
+        
         it('should return error on failed save', function() {
 
             modelsStub.Contact = sinon.spy(function() {
@@ -130,6 +131,7 @@ describe('Contacts Controller', function() {
             contacts.delete(req, res);
             expect(contactSpy.remove).calledOnce;
         });
+
         it('should return error on failed save', function() {
             modelsStub.Contact = {
                 findOne: function(query, callback) {
